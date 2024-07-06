@@ -3,7 +3,6 @@ import { DatabasePostgres } from './database-postgres.js'
 
 const server = fastify()
 
-
 const database = new DatabasePostgres()
 
 server.post('/videos', async (request, reply) => {
@@ -25,7 +24,7 @@ server.get('/videos', async (request) => {
 
   console.log(videos)
 
-  return videos 
+  return videos
 })
 
 server.put('/videos/:id', async (request, reply) => {
@@ -50,5 +49,6 @@ server.delete('/videos/:id', async (request, reply) => {
 })
 
 server.listen({
+  host: '0.0.0.0',
   port: process.env.PORT ?? 3333,
 })
